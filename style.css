@@ -11,18 +11,16 @@
   --accent-hover: #e68900;
 
   /* Hero Gradient - Light */
-  --hero-gradient: linear-gradient(
-    rgba(44, 140, 255, 0.85),
-    rgba(26, 111, 216, 0.90)
-  );
+  --hero-gradient: linear-gradient(rgba(44, 140, 255, 0.85),
+      rgba(26, 111, 216, 0.90));
 
   /* Header - Light */
   --header-bg: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
   --header-text: #ffffff;
   --header-title: #ffffff;
   --header-muted: rgba(255, 255, 255, 0.85);
-  --header-accent: #ffffff;        
-  --header-link-hover: #ffeb3b;     
+  --header-accent: #ffffff;
+  --header-link-hover: #ffeb3b;
   --header-btn-bg: rgba(255, 255, 255, 0.15);
   --header-btn-hover: rgba(255, 255, 255, 0.25);
 
@@ -48,19 +46,17 @@ body.dark-mode {
 
   /* Header - Dark */
   --header-bg: linear-gradient(135deg, #0b1f44 0%, #102a5c 100%);
-  --header-text: #ffffff;   
-  --header-title: #facc15;     
+  --header-text: #ffffff;
+  --header-title: #facc15;
   --header-muted: #cfe0ff;
-  --header-accent: #ffffff;        
-  --header-link-hover: #facc15;    
+  --header-accent: #ffffff;
+  --header-link-hover: #facc15;
   --header-btn-bg: rgba(255, 255, 255, 0.10);
   --header-btn-hover: rgba(255, 255, 255, 0.18);
 
   /* Hero Gradient - Dark */
-  --hero-gradient: linear-gradient(
-    rgba(11, 31, 68, 0.88),
-    rgba(16, 42, 92, 0.95)
-  );
+  --hero-gradient: linear-gradient(rgba(11, 31, 68, 0.88),
+      rgba(16, 42, 92, 0.95));
 
   /* Surfaces - Dark */
   --bg: #0e224d;
@@ -124,7 +120,7 @@ body {
 .section {
   padding: 60px 0 0 0;
   /* لانه الهيدر فوق واخد 100px فهكي يكون السكرول بالتحديد عالعنوان */
-  scroll-margin-top: 100px;
+  scroll-margin-top: 80px;
 }
 
 
@@ -160,7 +156,7 @@ body {
 
 .service-card,
 .feature,
-.stat-card{
+.stat-card {
   will-change: transform;
 }
 
@@ -293,7 +289,7 @@ body {
 
 
 header {
-  height: 100px;
+  height: 80px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -327,7 +323,7 @@ header {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--header-title);
-  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 /* Navigation Menu */
@@ -358,7 +354,7 @@ nav ul li a:hover {
   color: var(--header-link-hover);
   transform: translateY(-3px);
 }
-
+/* 
 nav ul li a.active {
   color: var(--header-link-hover);
   font-weight: 700;
@@ -374,7 +370,7 @@ nav ul li a.active::after {
   height: 2px;
   background: var(--header-link-hover);
   border-radius: 2px;
-}
+} */
 
 /* Header Actions (Theme Toggle) */
 .user-actions {
@@ -394,12 +390,34 @@ nav ul li a.active::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.2s ease;
 }
 
 .themeBtn:hover {
   background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+
+.langBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--header-btn-bg);
+  color: var(--header-title);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.langBtn:hover {
+  background: rgba(255,255,255,0.3);
   transform: scale(1.05);
 }
 
@@ -464,7 +482,7 @@ nav ul li a.active::after {
     url('assets/image/cleaning_pic.avif');
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -511,8 +529,9 @@ nav ul li a.active::after {
   /* Contains the image/icon */
   display: flex;
   flex-direction: column;
-  scroll-margin-top: 100px;
+  scroll-margin-top: 80px;
 }
+
 
 /* Highlight for JS interaction */
 .service-card.highlight {
@@ -657,12 +676,13 @@ nav ul li a.active::after {
   9. REFERRAL SECTION
    ========================================= */
 .referral {
-  background: linear-gradient(135deg, #ff9800 0%, #e68900 100%);
+  background: linear-gradient(135deg, var(--header-link-hover) 0%, var(--accent) 100%);
   color: #fff;
   padding: 50px 20px;
   border-radius: 20px;
   text-align: center;
   margin-bottom: 60px;
+  overflow: hidden;
 }
 
 .referral-row {
@@ -677,10 +697,9 @@ nav ul li a.active::after {
 .referral-code {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 12px 25px;
-  font-size: 1.2rem;
   border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 500;
   border: 1px dashed rgba(255, 255, 255, 0.5);
 }
 
@@ -967,7 +986,8 @@ footer {
 .toast {
   position: fixed;
   bottom: 30px;
-  right: 30px; /* RTL */
+  right: 30px;
+  /* RTL */
   background: var(--card);
   color: var(--text);
   padding: 14px 22px;
@@ -986,6 +1006,46 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+.highlight {
+  border: 3px solid var(--header-link-hover);
+
+}
+
+/* =========================
+  Scroll Reveal Animation
+   ========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays */
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
 
 
 /* =========================================
@@ -1020,10 +1080,54 @@ footer {
 @media (max-width: 768px) {
 
   /* Header Layout Change */
-  .header-container {
+  /* .header-container {
     display: grid;
     grid-template-columns: auto 1fr auto;
     padding: 0 15px;
+  } */
+
+    .header-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 0 15px;
+  }
+
+  .logo {
+  justify-self: center;
+  gap: 10px;
+}
+
+.user-actions {
+  justify-self: end;
+  gap: 8px;
+}
+
+.dropdown {
+  justify-self: start;
+}
+
+.langBtn{ display:none; }
+/* فاصل قبل اللغة باش تحسيه خيار مستقل */
+.dropdown-content a.lang-item{
+  border-top: 1px solid var(--border);
+  margin-top: 6px;
+}
+
+  header {
+    height: 60px;
+  }
+
+  .hero {
+    height: calc(100vh - 60px);
+  }
+
+  .service-card {
+    scroll-margin-top: 60px;
+  }
+
+  .section {
+
+    scroll-margin-top: 60px;
   }
 
   .logo {
@@ -1074,4 +1178,39 @@ footer {
     padding: 6px 10px;
 
   }
+
+  .themeBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 7px;
+  
+}
+
+ .langBtn{
+  width: 35px;
+  height: 35px;
+  border-radius: 7px;
+ }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+
+  .referral-code {
+    padding: 2px 5px;
+
+
+  }
+
+  .toast {
+    right: 12px;
+    left: 12px;
+    bottom: 20px;
+    max-width: calc(100% - 24px);
+    font-size: 0.95rem;
+  }
+
+
 }

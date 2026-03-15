@@ -5,8 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/ico" href="Favicon.ico">
+  <link rel="stylesheet" href="style.css?v=4">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="/BuzzyBee_CleaningServiceWebSite/assets/favicon.ico" type="image/x-icon">
+
+
   <link rel="preload" as="image" href="assets/image/cleaning_pic.avif" type="image/avif">
 
   <meta name="description"
@@ -36,6 +40,10 @@
           <a href="#offers">العروض</a>
           <a href="#booking">الحجز</a>
           <a href="signin.html">تسجيل الدخول</a>
+          <!-- اللغة -->
+          <a href="index-en.html" class="lang-item">
+            <i class="fas fa-language"></i> English
+          </a>
         </div>
       </div>
 
@@ -59,7 +67,14 @@
         <button class="themeBtn" id="themeToggle">
           <i class="fas fa-moon"></i>
         </button>
+
+        <a href="index-en.html" class="langBtn" aria-label="English">
+          EN
+        </a>
+
       </div>
+
+    </div>
 
     </div>
   </header>
@@ -258,7 +273,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="date">التاريخ المطلوب *</label>
-                <input type="date" id="date" class="form-control" min="<?= today ?>" required>
+                <input type="date" id="date" class="form-control" required>
 
               </div>
 
@@ -336,68 +351,68 @@
 
   <!-- Footer -->
   <section id="about-us" class="section footer-section">
-    <footer >
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h3>خدمات التنظيف</h3>
-          <p>نقدم أفضل خدمات التنظيف المنزلي والمكتبي بأسعار تنافسية وجودة عالية. فريق عمل مدرب وأدوات حديثة
-            لضمان رضاك.</p>
-          <div class="social-links">
-            <a href="https://twitter.com/merrymaids" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.facebook.com/merrymaids" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/merrymaids" target="_blank"><i class="fab fa-instagram"></i></a>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3>خدمات التنظيف</h3>
+            <p>نقدم أفضل خدمات التنظيف المنزلي والمكتبي بأسعار تنافسية وجودة عالية. فريق عمل مدرب وأدوات حديثة
+              لضمان رضاك.</p>
+            <div class="social-links">
+              <a href="https://twitter.com/merrymaids" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/merrymaids" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/merrymaids" target="_blank"><i class="fab fa-instagram"></i></a>
 
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="#home">الرئيسية</a></li>
+              <li><a href="#services">الخدمات</a></li>
+              <li><a href="#offers">العروض</a></li>
+              <li><a href="#booking">الحجز</a></li>
+              <li><a href="signin.html">تسجيل دخول</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>خدماتنا</h3>
+            <ul>
+              <li><a href="#house">تنظيف المنازل</a></li>
+              <li><a href="#apartment">تنظيف الشقق</a></li>
+              <li><a href="#carpet">تنظيف السجاد</a></li>
+
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>معلومات التواصل</h3>
+            <ul>
+              <li><i class="fas fa-phone"></i> 0944453531</li>
+              <li><i class="fas fa-envelope"></i> info@clean-service.com</li>
+              <li><i class="fas fa-map-marker-alt"></i> طرابلس - ليبيا</li>
+              <li><i class="fas fa-clock"></i> 8 ص - 10 م طوال الأسبوع</li>
+              <li><i class="fas fa-laptop-code"></i> تطوير: ارجوان العائب & رغد اعمار </li>
+            </ul>
           </div>
         </div>
 
-        <div class="footer-column">
-          <h3>روابط سريعة</h3>
-          <ul>
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#services">الخدمات</a></li>
-            <li><a href="#offers">العروض</a></li>
-            <li><a href="#booking">الحجز</a></li>
-            <li><a href="signin.html">تسجيل دخول</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>خدماتنا</h3>
-          <ul>
-            <li><a href="#house">تنظيف المنازل</a></li>
-            <li><a href="#apartment">تنظيف الشقق</a></li>
-            <li><a href="#carpet">تنظيف السجاد</a></li>
-
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>معلومات التواصل</h3>
-          <ul>
-            <li><i class="fas fa-phone"></i> 0944453531</li>
-            <li><i class="fas fa-envelope"></i> info@clean-service.com</li>
-            <li><i class="fas fa-map-marker-alt"></i>طرابلس - ليبيا</li>
-            <li><i class="fas fa-clock"></i> 8 ص - 10 م طوال الأسبوع</li>
-            <li><i class="fas fa-laptop-code"></i>تطوير: ارجوان العائب & رغد اعمار</li>
-          </ul>
+        <div class="copyright">
+          <p>جميع الحقوق محفوظة &copy; 2025 خدمات التنظيف | سياسات وشروط الاستخدام | خصوصية البيانات</p>
         </div>
       </div>
-
-      <div class="copyright">
-        <p>جميع الحقوق محفوظة &copy; 2025 خدمات التنظيف | سياسات وشروط الاستخدام | خصوصية البيانات</p>
-      </div>
-    </div>
-  </footer>
-</section>
+    </footer>
+  </section>
 
 
   <div id="toast" class="toast">📋 تم نسخ رابط الدعوة بنجاح!</div>
 
 
 
-  <script src="script.js"></script>
+  <script src="script.js?v=12"></script>
 </body>
 
 </html>

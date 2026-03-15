@@ -15,9 +15,11 @@ const servicePrices = {
  * 2. PAGE LOADER
  * =========================================
  */
+
 window.addEventListener("load", () => {
   const loader = document.getElementById("page-loader");
-  // Slight delay to ensure the logo animation is seen
+  if (!loader) return;
+
   setTimeout(() => {
     loader.classList.add("hide");
   }, 600);
@@ -33,13 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".dropbtn");
   const menuContent = document.querySelector(".dropdown-content");
 
-  if (menuBtn) {
+  if (menuBtn && menuContent) {
     menuBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent closing immediately when clicking button
+      e.stopPropagation();
       menuContent.classList.toggle("show");
     });
 
-    // Close menu when clicking outside
     document.addEventListener("click", (e) => {
       if (!menuBtn.contains(e.target) && !menuContent.contains(e.target)) {
         menuContent.classList.remove("show");
@@ -55,30 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetId === "#") return;
 
       const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
+      if (targetElement) targetElement.scrollIntoView({ behavior: "smooth" });
     });
   });
 
   // --- Scroll To Top Button ---
   const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollTopBtn.style.display = "flex";
-      // Small animation for button appearance
-      setTimeout(() => scrollTopBtn.classList.add("show"), 10);
-    } else {
-      scrollTopBtn.classList.remove("show");
-      scrollTopBtn.style.display = "none";
-    }
-  });
+  if (scrollTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.style.display = "flex";
+        setTimeout(() => scrollTopBtn.classList.add("show"), 10);
+      } else {
+        scrollTopBtn.classList.remove("show");
+        scrollTopBtn.style.display = "none";
+      }
+    });
 
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+}); 
 
 /**
  * =========================================
@@ -311,34 +311,42 @@ if (bookingForm) {
  */
 
 const sendBtn = document.querySelector(".send-btn");
-const toast = document.getElementById("toast");
-
-function showToast(message) {
-  if (!toast) return;
-
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2500);
-}
 
 if (sendBtn) {
-  sendBtn.addEventListener("click", () => {
+  sendBtn.addEventListener("click", async () => {
     const codeElement = document.querySelector(".referral-code");
     if (!codeElement) return;
 
     const link = codeElement.innerText.trim();
 
-    navigator.clipboard
-      .writeText(link)
-      .then(() => {
-        showToast("📋 تم نسخ رابط الدعوة بنجاح!");
-      })
-      .catch(() => {
-        showToast("❌ لم يتم نسخ الرابط");
-      });
+    // 1) Modern clipboard (works best on HTTPS)
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(link);
+        showToast("تم نسخ رابط الدعوة بنجاح");
+        return;
+      }
+    } catch (e) {
+      // continue to fallback
+    }
+
+    // 2) Fallback for phones / http / older browsers
+    try {
+      const temp = document.createElement("textarea");
+      temp.value = link;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "fixed";
+      temp.style.top = "-1000px";
+      document.body.appendChild(temp);
+
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
+
+      showToast("تم نسخ رابط الدعوة بنجاح");
+    } catch (e) {
+      showToast("تعذر نسخ الرابط، انسخه يدويًا");
+    }
   });
 }
 
@@ -386,56 +394,83 @@ document.addEventListener("DOMContentLoaded", () => {
  * =========================================
  */
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav ul li a");
+// const sections = document.querySelectorAll("section[id]");
+// const navLinks = document.querySelectorAll("nav ul li a");
 
-const spyObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
+// const spyObserver = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         const id = entry.target.getAttribute("id");
 
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${id}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  },
-  {
-    root: null,               // viewport
-    rootMargin: "-40% 0px -50% 0px", 
-    threshold: 0
-  }
-);
+//         navLinks.forEach((link) => {
+//           link.classList.remove("active");
+//           if (link.getAttribute("href") === `#${id}`) {
+//             link.classList.add("active");
+//           }
+//         });
+//       }
+//     });
+//   },
+//   {
+//     root: null, // viewport
+//     rootMargin: "-10% 0px -70% 0px",
+// threshold: 0
+//   }
+// );
 
-// Observe each section
-sections.forEach(section => spyObserver.observe(section));
-
+// // Observe each section
+// sections.forEach((section) => spyObserver.observe(section));
 
 //sign in / sign up
 
+// function fakeAuth(provider) {
+//   showToast(`تم التسجيل عبر ${provider} ✅`);
+
+//   setTimeout(() => {
+//     window.location.href = "index.html";
+//   }, 2000);
+// }
+
+// function showToast(message) {
+//   const toast = document.createElement("div");
+//   toast.className = "toast-message";
+//   toast.textContent = message;
+
+//   document.body.appendChild(toast);
+
+//   setTimeout(() => toast.classList.add("show"), 100);
+//   setTimeout(() => {
+//     toast.classList.remove("show");
+//     setTimeout(() => toast.remove(), 300);
+//   }, 1800);
+// }
+
+function showToast(message) {
+  // لو موجود toast ثابت في الصفحة استخدمه
+  let toast = document.getElementById("toast");
+
+  // لو مش موجود (زي صفحات signin/signup) أنشئه مرة وحدة
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toast";
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
 
 function fakeAuth(provider) {
-  showToast(`تم التسجيل عبر ${provider} ✅`);
+  showToast(`تم التسجيل عبر ${provider} بنجاح`);
 
   setTimeout(() => {
     window.location.href = "index.html";
-  }, 2000);
-}
-
-function showToast(message) {
-  const toast = document.createElement("div");
-  toast.className = "toast-message";
-  toast.textContent = message;
-
-  document.body.appendChild(toast);
-
-  setTimeout(() => toast.classList.add("show"), 100);
-  setTimeout(() => {
-    toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 300);
-  }, 1800);
+  }, 1200);
 }
