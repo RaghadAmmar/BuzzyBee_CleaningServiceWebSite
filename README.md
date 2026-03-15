@@ -1,67 +1,83 @@
-# BuzzyBee_CleaningServiceWebSite
-🐝 Responsive cleaning service website with booking system, dark mode, authentication pages, and modern UI built using HTML, CSS, and JavaScript.
+# 🐝 Buzzy Bee – Cleaning Services Website
 
-# 🐝 BuzzyBee Cleaning Service Website
-
-موقع ويب عصري ومتجاوب مخصص لخدمات التنظيف، يهدف إلى تسهيل عملية حجز خدمات التنظيف للمنازل، الشقق، والسجاد، مع تجربة مستخدم بسيطة وجذابة.
+Buzzy Bee is a modern, responsive front-end website designed for professional cleaning services.  
+It provides users with an easy and intuitive way to browse services, book cleaning appointments, and interact with a clean and user-friendly interface.
 
 ---
 
-## 📌 نبذة عن المشروع
-**BuzzyBee Cleaning Service Website** هو مشروع Front-End يعرض خدمات شركة تنظيف بطريقة احترافية، مع نظام حجز مباشر، صفحات تسجيل دخول وإنشاء حساب، ودعم الوضع الداكن (Dark Mode).
+## 🌟 Features
 
-المشروع مصمم ليكون:
-- سهل الاستخدام
-- سريع وخفيف
-- متجاوب مع جميع الأجهزة
-- قابل للتطوير مستقبلاً (ربط Backend / Database)
-
----
-
-## ✨ المميزات
-- ✅ تصميم Responsive (موبايل – تابلت – ديسكتوب)
-- ✅ صفحة رئيسية (Landing Page)
-- ✅ صفحة تسجيل دخول (Sign In)
-- ✅ صفحة إنشاء حساب (Sign Up)
-- ✅ نظام حجز خدمات مع حساب السعر تلقائيًا
-- ✅ نافذة تأكيد الحجز (Modal)
-- ✅ تأثيرات Scroll Animations
-- ✅ عدّادات إحصائية (Stats Counter)
-- ✅ نظام دعوة (Referral System) مع نسخ الرابط
-- ✅ زر الرجوع للأعلى (Scroll To Top)
-- ✅ الوضع الداكن / الفاتح (Dark & Light Mode)
+- ✨ Modern and clean UI/UX design
+- 📱 Fully responsive (Desktop, Tablet, Mobile)
+- 🌙 Dark / Light mode with saved user preference
+- 🧾 Service booking system with automatic price calculation
+- 🔔 Toast notifications for user feedback
+- 🧭 Smooth scrolling & Scroll Spy navigation
+- 📊 Animated statistics counters
+- 🔐 Login & Sign-up pages (UI only)
+- 🎁 Referral system with copy-to-clipboard
+- 🗺️ Google Maps location integration
 
 ---
 
-## 🛠️ التقنيات المستخدمة
+## 🧰 Technologies Used
+
 - **HTML5**
-- **CSS3**
+- **CSS3** (Flexbox, Grid, Media Queries)
 - **JavaScript (Vanilla JS)**
 - **Font Awesome**
-- **Google Fonts**
-- **Intersection Observer API**
+- **GitHub Pages** (Free Hosting)
 
 ---
 
-## 📂 هيكلة المشروع
+## 👩‍💻 Contributors
+
+- **Orjwan Elayeb** – Front-End Developer  
+  GitHub: https://github.com/orjwan-elayeb
+
+- **Raghad Ammar** – Front-End Developer  
+  GitHub: https://github.com/RaghadAmmar
+
+  As part of an academic front-end web development project.
+  
+---
+
+## 📂 Project Structure
 ```text
 BuzzyBee_CleaningServiceWebSite/
 │
-├── index.html            # الصفحة الرئيسية
-├── signin.html           # صفحة تسجيل الدخول
-├── signup.html           # صفحة إنشاء حساب
+├── index.html            # Main landing page
+├── signin.html           # Sign in page
+├── signup.html           # Sign up page
 │
-├── style.css             # تنسيقات الصفحة الرئيسية
-├── signInStyle.css       # تنسيقات تسجيل الدخول
-├── signupStyle.css       # تنسيقات إنشاء الحساب
+├── style.css             # Main stylesheet
+├── signInStyle.css       # Sign in page styles
+├── signupStyle.css       # Sign up page styles
 │
-├── script.js              # جميع أكواد JavaScript
+├── script.js             # JavaScript logic
 │
 ├── assets/
-│   ├── image/
-│   │   ├── logo.png
-│   │   ├── logo-darkMode.png
-│   │   ├── cleaning_pic.avif
-│   │   └── splash.png
+│   └── image/
+│       ├── logo.png
+│       ├── logo-darkMode.png
+│       ├── cleaning_pic.avif
+│       └── splash.png
 │
-└── README.md
+└── Favicon.ico
+
+```
+---
+
+## 🚀 How to Run the Project
+
+### Run Locally
+1. Clone or download the repository
+2. Open `index.html` in your browser  
+   *(Live Server is recommended)*
+
+### Live Demo
+
+This project is hosted for free using **GitHub Pages**.
+
+🔗 [View Live Website](https://orjwan-elayeb.github.io/BuzzyBee_CleaningServiceWebSite/)
+
